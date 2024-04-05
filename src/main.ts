@@ -25,7 +25,7 @@ function createMessage(pytestResult: any): string {
       const iNext = parseInt(i) + 1
       delLine = iNext.toString()
       newMessage +=
-        '| Name | Stmts | Miss | Cover |\n| :--- | ----: | ---: | ----: |\n'
+        '| Name | Stmts | Miss | Cover |\n| :--- | ---: | ---: | ---: |\n'
     }
     if (i === delLine) {
       delete lineOfText[i]
@@ -109,3 +109,5 @@ async function run(): Promise<void> {
 
 // eslint-disable-next-line github/no-then
 run().catch(error => core.setFailed(`Workflow failed! ${error.message}`))
+
+module.exports = {createMessage}
