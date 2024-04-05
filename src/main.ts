@@ -24,18 +24,18 @@ function createMessage(pytestResult: any): string {
       delete lineOfText[i]
       const iNext = parseInt(i) + 1
       delLine = iNext.toString()
-      newMessage +=
-        '| Name | Stmts | Miss | Cover |\n| :--- | ---: | ---: | ---: |\n'
+      const fields = lineOfText[iNext].split(/\s+/)
+      const alignments = fields.map((_, index) =>
+        index === 0 ? ':---' : '---:'
+      )
+      newMessage += `| ${fields.join(' | ')} |\n`
+      newMessage += `| ${alignments.join(' | ')} |\n`
     }
     if (i === delLine) {
       delete lineOfText[i]
     }
     if (startKey !== '0' && lineOfText[i] !== undefined) {
-      if (
-        lineOfText[i].indexOf(
-          '---------------------------------------------------------'
-        ) >= 0
-      ) {
+      if (/^-+$/.test(lineOfText[i])) {
         delete lineOfText[i]
       } else if (lineOfText[i].indexOf('passed in') >= 0) {
         lastMessage += `\n~${lineOfText[i].replace(/=/g, '')}~`

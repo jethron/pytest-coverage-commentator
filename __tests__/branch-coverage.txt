@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.8, pytest-7.4.3, pluggy-1.3.0
+cachedir: .pytest_cache
+rootdir: /Users/kuncoro.barot/Documents/01.Sequislife/base-architecture
+plugins: Faker-20.0.0, cov-4.1.0
+collecting ... collected 2 items
+
+example/test/test_a.py::test_a PASSED        [ 50%]
+example/test/test_b.py::test_b PASSED [100%]
+
+---------- coverage: platform linux, python 3.11.8-final-0 -----------
+Name                                     Stmts   Miss Branch BrPart  Cover
+--------------------------------------------------------------------------
+example/__main__.py                         2      2       1      0     0%
+example/util.py                             9      9       1      0     0%
+--------------------------------------------------------------------------
+TOTAL                                      11      11      2      0     0%
+
+1 empty file skipped.
+
+
+============================== 2 passed in 0.05s ===============================
